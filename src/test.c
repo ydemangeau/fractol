@@ -50,11 +50,13 @@ int main(void) {
 	unsigned char line_buffer[OUTPUT_WIDTH * 3];
 
 	// Pour chaque pixel en Y
-	for (unsigned int y = 0; y < OUTPUT_HEIGHT; ++y) {
+	for (unsigned int y = 0; y < OUTPUT_HEIGHT; ++y) 
+	{
 		double p_i = (y - OUTPUT_HEIGHT / 2.0) / (0.5 * ZOOM * OUTPUT_HEIGHT) + START_Y;
 
 		// Pour chaque pixel en X
-		for (unsigned int x = 0; x < OUTPUT_WIDTH; ++x) {
+		for (unsigned int x = 0; x < OUTPUT_WIDTH; ++x) i
+		{
 			double p_r = 1.5 * (x - OUTPUT_WIDTH / 2.0) / (0.5 * ZOOM * OUTPUT_WIDTH) + START_X;
 			double new_r = 0, new_i = 0, old_r = 0, old_i = 0;
 			unsigned int i = 0;

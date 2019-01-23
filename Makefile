@@ -4,6 +4,7 @@ LIB_DIR=./libft
 LIB=./libft/libft.a
 EXEC=fractol
 SRC=src/main.c\
+	src/mandelbrot.c
 
 all:$(EXEC)
 
