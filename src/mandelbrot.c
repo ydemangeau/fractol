@@ -60,3 +60,28 @@ void	julia(t_mlx mlx)
 	}
 }
 
+void	burningship(t_mlx mlx)
+{
+	while (++mlx.y < OUTPUT_HEIGHT)
+	{
+		mlx.x = -1;
+		while (++mlx.x < OUTPUT_WIDTH)
+		{
+			mlx.c_i = (mlx.y - OUTPUT_HEIGHT / 2.0) / (0.5 * mlx.zoom * OUTPUT_HEIGHT) + mlx.start_y;
+			mlx.c_r = 1.5 * (mlx.x - OUTPUT_WIDTH / 2.0) / (0.5 * mlx.zoom * OUTPUT_WIDTH) + mlx.start_x;
+			mlx.z_r = mlx.c_r;
+			mlx.z_i = mlx.c_i;
+			mlx.i = 0;
+			while ((mlx.z_r * mlx.z_r + mlx.z_i * mlx.z_i) < 4.0 && mlx.i < MAX_ITERATION) 
+			{
+				mlx.tmp = mlx.z_r * mlx.z_r - mlx.z_i * mlx.z_i + mlx.c_i;
+				mlx.z_r = ft_abs(2 * mlx.z_r * mlx.z_i) + mlx.c_r;
+				mlx.z_i = ft_abs(mlx.tmp);
+				++mlx.i;
+			}
+			put_pixel(mlx);
+		}
+	}
+}
+
+
