@@ -6,7 +6,7 @@
 /*   By: ydemange <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/18 17:03:04 by ydemange          #+#    #+#             */
-/*   Updated: 2019/01/25 00:56:40 by ydemange         ###   ########.fr       */
+/*   Updated: 2019/01/25 19:16:52 by ydemange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	put_pixel(t_mlx mlx)
 
 int		check_error(int argc, char **argv)
 {
-	if (argc != 2 || (ft_atoi(argv[1]) < 1 || ft_atoi(argv[1]) > 3) || argv[2])
+	if (argc != 2 || (ft_atoi(argv[1]) < 1 || ft_atoi(argv[1]) > 3) 
+			|| argv[2] || argv[1][1] != '\0')
 	{
 		ft_putendl("Usage : fractol/ 1:Mandelbrot 2:Julia 3:Tricorn");
 		exit(0);

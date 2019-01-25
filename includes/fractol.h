@@ -6,7 +6,7 @@
 /*   By: ydemange <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 18:53:03 by ydemange          #+#    #+#             */
-/*   Updated: 2019/01/24 23:56:23 by ydemange         ###   ########.fr       */
+/*   Updated: 2019/01/25 20:10:25 by ydemange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 
 # define KEY_ESC		53
 # define KEY_Z		6
+# define KEY_A		0
+# define KEY_S		1
+# define KEY_D		2
+# define KEY_F		3
 # define OUTPUT_WIDTH 1920
 # define OUTPUT_HEIGHT 1080
 
@@ -34,15 +38,14 @@ typedef struct			s_mlx
 	double			c_r;
 	double			c_i;
 	double			tmp;
-	double			x1;
-	double			y1;
 	double			x;
 	double			y;
-	double			start_x;//
-	double			start_y;//
+	double			start_x;
+	double			start_y;
 	double			zoom;
 }						t_mlx;
 
+int					julia_mouse(int x, int y, t_mlx *mlx);
 void				put_pixel(t_mlx mlx);
 void				mandelbrot_init(t_mlx *mlx);
 void				julia_init(t_mlx *mlx);

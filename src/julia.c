@@ -6,16 +6,35 @@
 /*   By: ydemange <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 17:10:27 by ydemange          #+#    #+#             */
-/*   Updated: 2019/01/25 00:20:16 by ydemange         ###   ########.fr       */
+/*   Updated: 2019/01/25 20:33:39 by ydemange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+int		julia_mouse(int x, int y, t_mlx *mlx)
+{
+	if (mlx->fract == 2)
+	{
+		if (x <= 960)
+		{
+			mlx->c_r -= 0.1;
+			mlx->c_i += y <= 540 ? 0.1 : -0.1;
+		}
+		else
+		{
+			mlx->c_r += 0.1;
+			mlx->c_i += y <= 540 ? 0.1 : -0.1;
+		}
+		julia(mlx);
+	}
+	return (0);
+}
+
 void		julia_init(t_mlx *mlx)
 {
-	mlx->start_x = -1.2;
-	mlx->start_y = -1.2;
+	mlx->start_x = -2.0;
+	mlx->start_y = -1.8;
 	mlx->zoom = 300;
 	mlx->max_iteration = 50;
 	mlx->color = 265;
