@@ -6,7 +6,7 @@
 /*   By: ydemange <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 17:27:30 by ydemange          #+#    #+#             */
-/*   Updated: 2018/11/26 18:05:35 by ydemange         ###   ########.fr       */
+/*   Updated: 2019/01/24 17:05:35 by ydemange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,5 @@ int					ft_power(int nb, int power);
 void				ft_swap(int *a, int *b);
 char				*ft_strrev(char *str);
 int					ft_get_next_line(const int fd, char **line);
-
+int					ft_abs(int i);
 #endif
