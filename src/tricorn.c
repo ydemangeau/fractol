@@ -42,7 +42,7 @@ void	tricorn(t_mlx *mlx)
 				mlx->z_i = -2 * mlx->z_i * mlx->tmp + mlx->c_i;
 				mlx->i++;
 			}
-			put_pixel(*mlx);
+			put_pixel(mlx);
 		}
 	}
 }

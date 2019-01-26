@@ -29,6 +29,11 @@ typedef struct			s_mlx
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
+	void			*img;
+	void			*img_ptr;
+	int				endian;
+	int				sl;
+	int				bpp;
 	int				color;
 	int				fract;
 	unsigned int	max_iteration;
@@ -46,7 +51,7 @@ typedef struct			s_mlx
 }						t_mlx;
 
 int					julia_mouse(int x, int y, t_mlx *mlx);
-void				put_pixel(t_mlx mlx);
+void				put_pixel(t_mlx *mlx);
 void				mandelbrot_init(t_mlx *mlx);
 void				julia_init(t_mlx *mlx);
 void				tricorn_init(t_mlx *mlx);

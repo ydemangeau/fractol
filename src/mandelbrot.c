@@ -42,9 +42,10 @@ void			mandelbrot(t_mlx *mlx)
 				mlx->z_i = 2.0 * mlx->z_i * mlx->tmp + mlx->c_i;
 				++mlx->i;
 			}
-			put_pixel(*mlx);
+			put_pixel(mlx);
 		}
 	}
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->img, 0, 0);
 }
 
 

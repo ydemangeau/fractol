@@ -16,14 +16,27 @@ static void		init(t_mlx *mlx)
 {
 	mlx->mlx_ptr = mlx_init();
 	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, OUTPUT_WIDTH, OUTPUT_HEIGHT, "fractol");
+	mlx->img = mlx_new_image(mlx->mlx_ptr, OUTPUT_WIDTH, OUTPUT_HEIGHT);
+	mlx->img_ptr = mlx_get_data_addr(mlx->img, &mlx->bpp, &mlx->sl, &mlx->endian);
 }
 
-void	put_pixel(t_mlx mlx)
+void	put_pxl_to_img(t_mlx *mlx, int x, int y, int color)
 {
-	if (mlx.i == mlx.max_iteration)
-		mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, mlx.x, mlx.y, 0);
+	if (mlx->x < OUTPUT_WIDTH && mlx->y < OUTPUT_HEIGHT)
+	{
+		color = mlx_get_color_value(mlx->mlx_ptr, color);
+		ft_memcpy(mlx->img_ptr + 4 * OUTPUT_WIDTH * y + x * 4, &color, sizeof(int));
+	}
+}
+
+void	put_pixel(t_mlx *mlx)
+{
+	if (mlx->i == mlx->max_iteration)
+		put_pxl_to_img(mlx, mlx->x, mlx->y, (mlx->color * mlx->i));
+		//mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, mlx.x, mlx.y, 0);
 	else
-		mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, mlx.x, mlx.y, (mlx.color * mlx.i));
+		put_pxl_to_img(mlx, mlx->x, mlx->y, (mlx->color * mlx->i));
+		//mlx_pixel_put(mlx.mlx_ptr, mlx.win_ptr, mlx.x, mlx.y, (mlx.color * mlx.i));
 }
 
 int		check_error(int argc, char **argv)
