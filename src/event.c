@@ -6,7 +6,7 @@
 /*   By: ydemange <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 21:20:05 by ydemange          #+#    #+#             */
-/*   Updated: 2019/01/25 20:36:11 by ydemange         ###   ########.fr       */
+/*   Updated: 2019/01/27 19:47:55 by ydemange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		mouse_event(int mousecode, int x, int y, t_mlx *mlx)
 
 void	event(t_mlx *mlx)
 {
-	mlx_hook(mlx->win_ptr, 6, 0L, julia_mouse,mlx);
+	mlx_hook(mlx->win_ptr, 6, 0L, julia_mouse, mlx);
 	mlx_key_hook(mlx->win_ptr, key_event, mlx);
 	mlx_mouse_hook(mlx->win_ptr, mouse_event, mlx);
 	mlx_loop(mlx->mlx_ptr);
