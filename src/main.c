@@ -6,7 +6,7 @@
 /*   By: ydemange <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/18 17:03:04 by ydemange          #+#    #+#             */
-/*   Updated: 2019/01/27 19:47:36 by ydemange         ###   ########.fr       */
+/*   Updated: 2019/01/27 19:55:34 by ydemange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		init(t_mlx *mlx)
 			&mlx->sl, &mlx->endian);
 }
 
-void			put_pxl_to_img(t_mlx *mlx, int x, int y, int color)
+void			put_pixel_to_image(t_mlx *mlx, int x, int y, int color)
 {
 	if (mlx->x < OUTPUT_WIDTH && mlx->y < OUTPUT_HEIGHT)
 	{
@@ -35,9 +35,9 @@ void			put_pxl_to_img(t_mlx *mlx, int x, int y, int color)
 void			put_pixel(t_mlx *mlx)
 {
 	if (mlx->i == mlx->max_iteration)
-		put_pxl_to_img(mlx, mlx->x, mlx->y, 0);
+		put_pixel_to_image(mlx, mlx->x, mlx->y, 0);
 	else
-		put_pxl_to_img(mlx, mlx->x, mlx->y, (mlx->color * mlx->i));
+		put_pixel_to_image(mlx, mlx->x, mlx->y, (mlx->color * mlx->i));
 }
 
 int				check_error(int argc, char **argv)
