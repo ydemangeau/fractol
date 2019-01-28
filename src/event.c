@@ -15,7 +15,11 @@
 int		key_event(int key, t_mlx *mlx)
 {
 	if (key == KEY_ESC)
+	{
+		mlx_destroy_image(mlx->img_ptr);
+		free(mlx);
 		exit(0);
+	}
 	if (key == KEY_A)
 		mlx->color = 265;
 	if (key == KEY_S)
